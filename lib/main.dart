@@ -1,4 +1,5 @@
 import 'package:achievd/screens/login-flow.dart';
+import 'package:achievd/screens/main-screen.dart';
 import 'package:achievd/screens/registration-flow.dart';
 import 'package:achievd/screens/welcome-screen.dart';
 import 'package:dynamic_color/dynamic_color.dart';
@@ -37,16 +38,15 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
             fontFamily: GoogleFonts.firaSans().fontFamily,
           ),
-          themeMode: ThemeMode.dark,
-          initialRoute: FirebaseAuth.instance.currentUser == null
-              ? '/welcome-screen'
-              : '/home-screen',
+          initialRoute: '/welcome-screen', // '/welcome-screen
+          // FirebaseAuth.instance.currentUser == null
+          //     ? '/welcome-screen'
+          //     : '/home-screen',
           routes: <String, WidgetBuilder>{
             WelcomeScreen.route: (BuildContext context) => const WelcomeScreen(),
             LoginFlow.route: (BuildContext context) => const LoginFlow(),
-            RegistrationFlow.route: (BuildContext context) => RegistrationFlow(),
-            '/home-screen': (BuildContext context) =>
-                const MyHomePage(title: 'Flutter Demo Home Page'),
+            RegistrationFlow.route: (BuildContext context) => const RegistrationFlow(),
+            MainScreen.route: (BuildContext context) => const MainScreen(),
           });
     });
   }

@@ -26,7 +26,7 @@ class FlowContent extends StatelessWidget {
         leading: first ? null : const SizedBox(),
         centerTitle: true,
         title: const Text(
-          'achieved',
+          'achievd',
           style: kAchievdHeaderStyle,
         ),
       ),
