@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../FlowContent.dart';
+import 'flow-content.dart';
 
 class RegistrationFlow3 extends StatefulWidget {
   RegistrationFlow3({super.key, required this.handleUsername, required this.username});

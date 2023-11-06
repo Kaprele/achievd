@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../FlowContent.dart';
+import 'flow-content.dart';
 
 class RegistrationFlow4 extends StatefulWidget {
   const RegistrationFlow4({super.key, required this.handleBirthday});

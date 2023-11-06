@@ -1,6 +1,6 @@
-import '../util/constants.dart';
-import 'custom-scaffold.dart';
-import 'full-width-button.dart';
+import '../../util/constants.dart';
+import '../custom-scaffold.dart';
+import '../full-width-button.dart';
 import 'package:flutter/material.dart';
 
 class FlowContent extends StatelessWidget {

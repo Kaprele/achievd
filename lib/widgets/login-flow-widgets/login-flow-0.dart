@@ -1,4 +1,4 @@
-import 'package:achievd/widgets/FlowContent.dart';
+import 'package:achievd/widgets/login-flow-widgets/flow-content.dart';
 import 'package:achievd/widgets/login-flow-widgets/phonenumber-textfield.dart';
 import 'package:flutter/material.dart';
 

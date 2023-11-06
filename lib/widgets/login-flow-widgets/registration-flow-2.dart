@@ -2,7 +2,7 @@ import 'package:achievd/widgets/login-flow-widgets/phonenumber-textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../FlowContent.dart';
+import 'flow-content.dart';
 
 class RegistrationFlow2 extends StatelessWidget {
   RegistrationFlow2(
