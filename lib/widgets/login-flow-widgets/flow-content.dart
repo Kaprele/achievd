@@ -1,6 +1,6 @@
-import '../util/constants.dart';
-import 'custom-scaffold.dart';
-import 'full-width-button.dart';
+import '../../util/constants.dart';
+import '../custom-scaffold.dart';
+import '../full-width-button.dart';
 import 'package:flutter/material.dart';
 
 class FlowContent extends StatelessWidget {
@@ -26,7 +26,7 @@ class FlowContent extends StatelessWidget {
         leading: first ? null : const SizedBox(),
         centerTitle: true,
         title: const Text(
-          'achieved',
+          'achievd',
           style: kAchievdHeaderStyle,
         ),
       ),
