@@ -38,10 +38,9 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
             fontFamily: GoogleFonts.firaSans().fontFamily,
           ),
-          initialRoute: '/welcome-screen', // '/welcome-screen
-          // FirebaseAuth.instance.currentUser == null
-          //     ? '/welcome-screen'
-          //     : '/home-screen',
+          initialRoute: FirebaseAuth.instance.currentUser == null
+              ? '/welcome-screen'
+              : '/main-screen',
           routes: <String, WidgetBuilder>{
             WelcomeScreen.route: (BuildContext context) => const WelcomeScreen(),
             LoginFlow.route: (BuildContext context) => const LoginFlow(),
