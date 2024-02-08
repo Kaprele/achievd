@@ -26,7 +26,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   Widget build(BuildContext context) {
     return CustomScaffold(
       appBar: AppBar(
-        title: const Center(child: Text('achieved')),
+        title: const Center(child: Text('achievd')),
       ),
       body: Flex(
         direction: Axis.vertical,
