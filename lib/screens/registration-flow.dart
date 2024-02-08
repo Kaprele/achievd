@@ -17,15 +17,14 @@ class RegistrationFlow extends StatefulWidget {
 }
 
 class _RegistrationFlowState extends State<RegistrationFlow> {
-  String name = 'Gabi';
+  String name = '';
   String phoneNumber = '';
   String verificationCode = '';
-  String username = 'kaprele';
+  String username = '';
   DateTime birthday = DateTime.now();
-  RegExp phoneNumberRegex = RegExp(r'\+[0-9]{12}');
-  //todo remove debug values
-  String number = '7123123456';
-  String country = '+44';
+  RegExp phoneNumberRegex = RegExp(r'\+[0-9]');
+  String number = '';
+  String country = '';
 
   String verificationId = '';
 
@@ -37,7 +36,7 @@ class _RegistrationFlowState extends State<RegistrationFlow> {
 
   // change goBack behaviour
   //todo: make things responsive
-  //todo: do the whole authentification thing
+  //todo: do the whole authentication thing
   // make go back impossible
   //todo: make scrolling without values impossible
   //todo: save user in db
@@ -46,7 +45,9 @@ class _RegistrationFlowState extends State<RegistrationFlow> {
   @override
   Widget build(BuildContext context) {
     void handleName(String value) {
-      name = value;
+      setState(() {
+        name = value;
+      });
       if (name != '') {
         controller.nextPage(
             duration: const Duration(milliseconds: 500), curve: Curves.easeIn);

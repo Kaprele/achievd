@@ -1,6 +1,7 @@
 import 'package:achievd/widgets/login-flow-widgets/phonenumber-textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_verification_code/flutter_verification_code.dart';
 
 import 'flow-content.dart';
 
@@ -30,10 +31,11 @@ class RegistrationFlow2 extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           PhonenumberTextfield(
-            checkNumber: (value) => {},
-              country: countryCode,
-              number: number,
-              enabled: false,
+            country: countryCode,
+            number: number,
+            enabled: false,
+            handleCountry: (value) => {},
+            handleNumber: (value) => {},
           ),
           const SizedBox(height: 8),
           Padding(
@@ -44,18 +46,19 @@ class RegistrationFlow2 extends StatelessWidget {
             ),
             //todo make this dynamic
           ),
-          TextField(
-            //todo: make this to 6 digits
-            onChanged: (value) => verificationCode = value,
-            onSubmitted: (value) => handleVerificationCode(value),
-            inputFormatters: [
-              FilteringTextInputFormatter(RegExp("[0-9]"), allow: true),
-            ],
-            controller: TextEditingController(text: verificationCode),
-            autofocus: true,
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: 'Your code',
+          Center(
+            child: VerificationCode(
+              fullBorder: true,
+              margin: const EdgeInsets.only(top: 8),
+              keyboardType: TextInputType.number,
+              padding: const EdgeInsets.all(8),
+              textStyle: const TextStyle(fontSize: 20.0),
+              length: 6,
+              onCompleted: (String value) {
+                verificationCode = value;
+                handleVerificationCode(value);
+              },
+              onEditing: (bool value) {},
             ),
           ),
         ],

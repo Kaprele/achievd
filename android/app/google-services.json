@@ -23,25 +23,6 @@
           "other_platform_oauth_client": []
         }
       }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:14876649997:android:6f3872127eb6c5f91cc344",
-        "android_client_info": {
-          "package_name": "com.kaprele.mums_shopping_list"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyC21NQPKf-YJZvAKvRZkQNNTCz81c0lFRk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
     }
   ],
   "configuration_version": "1"

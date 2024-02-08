@@ -43,7 +43,7 @@ class _RegistrationFlow3State extends State<RegistrationFlow3> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           TextField(
-            controller: TextEditingController(text: '@${widget.username}'),
+            controller: TextEditingController(text: widget.username),
             onChanged: (value) => widget.username = value,
             onSubmitted: (value) => widget.handleUsername(widget.username),
             inputFormatters: [

@@ -1,4 +1,5 @@
 import 'package:achievd/widgets/login-flow-widgets/phonenumber-textfield.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'flow-content.dart';
 
@@ -14,22 +15,19 @@ class RegistrationFlow1 extends StatefulWidget {
 }
 
 class _RegistrationFlow1State extends State<RegistrationFlow1> {
-  //todo remove debug values
-  String country = '+44';
-  String number = '7123123456';
+  String country = '';
+  String number = '';
 
-  RegExp phoneNumberRegex = RegExp(r'\+[0-9]{12}');
+  RegExp phoneNumberRegex = RegExp(r'\+[0-9]*');
 
   String? error;
 
   void checkNumber(String value) {
-    number = value;
-    print(country + number );
     if (phoneNumberRegex.hasMatch(country + number)) {
+      print("valid number");
       setState(() {
         error = null;
       });
-      print('$country $number');
       widget.handlePhoneNumber('$country $number');
     } else {
       setState(() {
@@ -38,16 +36,31 @@ class _RegistrationFlow1State extends State<RegistrationFlow1> {
     }
   }
 
+  void handleNumber(String value) {
+    print(value);
+    setState(() {
+      number = value;
+    });
+  }
+
+  void handleCountry(String value) {
+    print('submitted: $value');
+    setState(() {
+      country = value;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return FlowContent(
       title: 'Hi ${widget.name}!',
       description: 'Please enter your phone number to create an account',
       buttonText: 'Send me a code',
-      callback: () => checkNumber(number),
+      callback: () => checkNumber(country + number),
       content: PhonenumberTextfield(
         enabled: true,
-        checkNumber: checkNumber,
+        handleNumber: handleNumber,
+        handleCountry: handleCountry,
         country: country,
         number: number,
         error: error,

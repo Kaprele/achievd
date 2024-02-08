@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'flow-content.dart';
 
 class RegistrationFlow0 extends StatelessWidget {
   RegistrationFlow0({super.key, required this.handleName, required this.name});
 
   final void Function(String) handleName;
-  String name; //todo remove debug value
+  String name;
 
   @override
   Widget build(BuildContext context) {

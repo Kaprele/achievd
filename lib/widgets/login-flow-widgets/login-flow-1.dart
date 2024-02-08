@@ -27,10 +27,11 @@ class LoginFlow1 extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           PhonenumberTextfield(
-            checkNumber: (value) => {},
             country: country,
             number: number,
             enabled: false,
+            handleCountry: (value) => {},
+            handleNumber: (value) => {},
           ),
           const SizedBox(height: 8),
           Padding(

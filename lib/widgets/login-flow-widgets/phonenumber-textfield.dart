@@ -3,44 +3,53 @@ import 'package:flutter/services.dart';
 
 //todo: denk dir smarte sachen aus
 class PhonenumberTextfield extends StatefulWidget {
-  PhonenumberTextfield({super.key,
-    required this.checkNumber,
+  PhonenumberTextfield({
+    super.key,
+    required this.handleNumber,
+    required this.handleCountry,
     required this.enabled,
     required this.country,
     required this.number,
     this.error,
   });
 
-
   final bool enabled;
   String? error;
   String country;
   String number;
-
-
-
-  final void Function(String) checkNumber;
+  final void Function(String) handleNumber;
+  final void Function(String) handleCountry;
 
   @override
   State<PhonenumberTextfield> createState() => _PhonenumberTextfieldState();
 }
 
 class _PhonenumberTextfieldState extends State<PhonenumberTextfield> {
-  late FocusNode phonefocus;
+  late FocusNode phonefocus, countryfocus;
 
   // submit ? onChanged = handleNumber : onchanged = value => widget.country = value
-
-
 
   @override
   void initState() {
     super.initState();
     phonefocus = FocusNode();
+    countryfocus = FocusNode();
+    phonefocus.addListener(() {
+      if (!phonefocus.hasFocus) {
+        widget.handleNumber(widget.number);
+      }
+    });
+    countryfocus.addListener(() {
+      if (!countryfocus.hasFocus) {
+        widget.handleCountry(widget.country);
+      }
+    });
   }
 
   @override
   void dispose() {
     phonefocus.dispose();
+    countryfocus.dispose();
     super.dispose();
   }
 
@@ -54,13 +63,16 @@ class _PhonenumberTextfieldState extends State<PhonenumberTextfield> {
           child: TextField(
             enabled: widget.enabled,
             onChanged: (value) => widget.country = value,
-            onSubmitted: (value) => {widget.country = value, phonefocus.requestFocus()},
+            onSubmitted: (value) {
+              widget.handleCountry(value);
+              FocusScope.of(context).requestFocus(phonefocus);
+            },
             controller: TextEditingController(text: widget.country),
             inputFormatters: [
               FilteringTextInputFormatter(RegExp(r'\+?\d*'), allow: true),
               LengthLimitingTextInputFormatter(3),
             ],
-
+            focusNode: countryfocus,
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontSize: 16,
@@ -76,23 +88,20 @@ class _PhonenumberTextfieldState extends State<PhonenumberTextfield> {
         ),
         const SizedBox(width: 16),
         SizedBox(
-          width: MediaQuery
-              .of(context)
-              .size
-              .width -
+          width: MediaQuery.of(context).size.width -
               32 -
               72 -
               16, //todo make this dynamic
           child: TextField(
             enabled: widget.enabled,
-            onChanged: (value) => widget.number = value,
-            onSubmitted:(value) => widget.checkNumber(value),
+            onChanged: (value) => widget.handleNumber(value),
+            onSubmitted: (value) => widget.handleNumber(value),
             controller: TextEditingController(text: widget.number),
             inputFormatters: [
               FilteringTextInputFormatter.digitsOnly,
             ],
             focusNode: phonefocus,
-            decoration:  InputDecoration(
+            decoration: InputDecoration(
               errorText: widget.error,
               border: const OutlineInputBorder(),
               labelText: 'Your phone number',

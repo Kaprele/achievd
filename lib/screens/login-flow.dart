@@ -18,8 +18,8 @@ class _LoginFlowState extends State<LoginFlow> {
   final PageController controller = PageController(
     initialPage: 0,
   );
-  String number = '7123123456';
-  String country = '+44';
+  String number = '';
+  String country = '';
   String phoneNumber = '';
   String verificationCode = '';
   String verificationId = '';
@@ -37,7 +37,7 @@ class _LoginFlowState extends State<LoginFlow> {
           phoneNumber: phoneNumber,//todo: remove debug value
           verificationCompleted: (PhoneAuthCredential credential) async {
             //android only
-            print(' verification completed');
+            print('verification completed');
             await FirebaseAuth.instance.signInWithCredential(credential);
             print('signed in');
             Navigator.removeRouteBelow(context, ModalRoute.of(context)!);
