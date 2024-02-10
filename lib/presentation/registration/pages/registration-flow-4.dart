@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'flow-content.dart';
+import '../../login/flow-content.dart';
 
 class RegistrationFlow4 extends StatefulWidget {
   const RegistrationFlow4({super.key, required this.handleBirthday});
 
   final void Function(DateTime) handleBirthday;
-
 
   @override
   State<RegistrationFlow4> createState() => _RegistrationFlow4State();
@@ -18,13 +17,15 @@ class _RegistrationFlow4State extends State<RegistrationFlow4> {
   String? error;
 
   void checkBirthday(String value) {
-    if (birthdayRegex.hasMatch(value) && DateTime.parse(value).isBefore(DateTime.now().subtract(const Duration(days: 365 * 18)))) {
+    if (birthdayRegex.hasMatch(value) &&
+        DateTime.parse(value).isBefore(
+            DateTime.now().subtract(const Duration(days: 365 * 18)))) {
       birthday = DateTime.parse(value);
       setState(() {
         error = null;
       });
       widget.handleBirthday(birthday);
-    }else{
+    } else {
       setState(() {
         error = "Please enter a valid date";
       });
@@ -55,7 +56,8 @@ class _RegistrationFlow4State extends State<RegistrationFlow4> {
           ),
           CalendarDatePicker(
             //todo: set min date
-            initialDate: DateTime.now().subtract(const Duration(days: 365 * 18)),
+            initialDate:
+                DateTime.now().subtract(const Duration(days: 365 * 18)),
             firstDate: DateTime(1900),
             lastDate: DateTime.now().subtract(const Duration(days: 365 * 18)),
             onDateChanged: (value) {

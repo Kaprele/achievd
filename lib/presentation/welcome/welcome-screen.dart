@@ -1,10 +1,10 @@
-import 'package:achievd/screens/registration-flow.dart';
-import 'package:achievd/widgets/custom-scaffold.dart';
+import 'package:achievd/presentation/registration/registration-flow.dart';
+import 'package:achievd/presentation/_shared/custom-scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../widgets/full-width-button.dart';
+import '../_shared/full-width-button.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String route = '/welcome-screen';

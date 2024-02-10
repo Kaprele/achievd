@@ -1,12 +1,13 @@
-import 'package:achievd/screens/main-screen.dart';
-import 'package:achievd/widgets/login-flow-widgets/login-flow-1.dart';
+import 'package:achievd/presentation/home/main-screen.dart';
+import 'package:achievd/presentation/login/pages/login-flow-1.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../widgets/login-flow-widgets/login-flow-0.dart';
+import 'pages/login-flow-0.dart';
 
 class LoginFlow extends StatefulWidget {
   const LoginFlow({super.key});
+
   static const String route = '/login-flow';
 
   @override
@@ -14,7 +15,6 @@ class LoginFlow extends StatefulWidget {
 }
 
 class _LoginFlowState extends State<LoginFlow> {
-
   final PageController controller = PageController(
     initialPage: 0,
   );
@@ -26,7 +26,6 @@ class _LoginFlowState extends State<LoginFlow> {
 
   @override
   Widget build(BuildContext context) {
-
     handlePhoneNumber(value) async {
       phoneNumber = value;
       country = value.substring(0, 3);
@@ -34,7 +33,8 @@ class _LoginFlowState extends State<LoginFlow> {
       if (phoneNumber != '') {
         print(number);
         await FirebaseAuth.instance.verifyPhoneNumber(
-          phoneNumber: phoneNumber,//todo: remove debug value
+          phoneNumber: phoneNumber,
+          //todo: remove debug value
           verificationCompleted: (PhoneAuthCredential credential) async {
             //android only
             print('verification completed');
@@ -83,7 +83,6 @@ class _LoginFlowState extends State<LoginFlow> {
           handlePhoneNumber: handlePhoneNumber,
           number: number,
           country: country,
-
         ),
         LoginFlow1(
           handleVerificationCode: handleVerificationCode,

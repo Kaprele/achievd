@@ -1,6 +1,6 @@
-import 'package:achievd/screens/profile-screen.dart';
-import 'package:achievd/screens/welcome-screen.dart';
-import 'package:achievd/widgets/custom-scaffold.dart';
+import 'package:achievd/presentation/profile/profile-screen.dart';
+import 'package:achievd/presentation/welcome/welcome-screen.dart';
+import 'package:achievd/presentation/_shared/custom-scaffold.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -34,17 +34,15 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-
-
     PageController controller = PageController(
       initialPage: _selectedIndex,
     );
     var navDestinations = destinations
         .map((e) => NavigationDestination(
-              icon: Icon( e['icon'] as IconData?),
-      label: e['label'] as String,
-            )
-    ).toList();
+              icon: Icon(e['icon'] as IconData?),
+              label: e['label'] as String,
+            ))
+        .toList();
 
     // BottomAppBar(
     //     height: 60,
@@ -62,7 +60,8 @@ class _MainScreenState extends State<MainScreen> {
           setState(() {
             _selectedIndex = index;
             controller.animateToPage(index,
-                duration: const Duration(milliseconds: 500), curve: Curves.ease);
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.ease);
           });
         },
       ),
@@ -70,7 +69,8 @@ class _MainScreenState extends State<MainScreen> {
         controller: controller,
         children: [
           Container(
-            color: Colors.red,),
+            color: Colors.red,
+          ),
           Container(
             color: Colors.blue,
           ),

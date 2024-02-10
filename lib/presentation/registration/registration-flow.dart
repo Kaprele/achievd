@@ -1,11 +1,11 @@
-import 'package:achievd/screens/main-screen.dart';
-import 'package:achievd/widgets/login-flow-widgets/registration-flow-2.dart';
-import 'package:achievd/widgets/login-flow-widgets/registration-flow-0.dart';
-import 'package:achievd/widgets/login-flow-widgets/registration-flow-1.dart';
-import 'package:achievd/widgets/login-flow-widgets/registration-flow-4.dart';
+import 'package:achievd/presentation/home/main-screen.dart';
+import 'package:achievd/presentation/registration/pages/registration-flow-0.dart';
+import 'package:achievd/presentation/registration/pages/registration-flow-1.dart';
+import 'package:achievd/presentation/registration/pages/registration-flow-2.dart';
+import 'package:achievd/presentation/registration/pages/registration-flow-3.dart';
+import 'package:achievd/presentation/registration/pages/registration-flow-4.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../widgets/login-flow-widgets/registration-flow-3.dart';
 
 class RegistrationFlow extends StatefulWidget {
   const RegistrationFlow({super.key});
@@ -155,8 +155,10 @@ class _RegistrationFlowState extends State<RegistrationFlow> {
           countryCode: country,
           verificationCode: verificationCode,
         ),
-        RegistrationFlow3(handleUsername: handleUsername,username: username),
-        RegistrationFlow4(handleBirthday: handleBirthday, ),
+        RegistrationFlow3(handleUsername: handleUsername, username: username),
+        RegistrationFlow4(
+          handleBirthday: handleBirthday,
+        ),
       ],
     );
   }

@@ -1,10 +1,10 @@
+import 'package:achievd/presentation/login/flow-content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'flow-content.dart';
-
 class RegistrationFlow3 extends StatefulWidget {
-  RegistrationFlow3({super.key, required this.handleUsername, required this.username});
+  RegistrationFlow3(
+      {super.key, required this.handleUsername, required this.username});
 
   final void Function(String) handleUsername;
   String username;
@@ -24,7 +24,7 @@ class _RegistrationFlow3State extends State<RegistrationFlow3> {
         error = null;
       });
       widget.handleUsername(widget.username);
-    }else{
+    } else {
       setState(() {
         error = "Please enter a valid username";
       });
@@ -36,7 +36,7 @@ class _RegistrationFlow3State extends State<RegistrationFlow3> {
     return FlowContent(
       title: 'You are verified!',
       description:
-      'Let\'s find a username for you. \nIt\'s a unique identifier for your friends to find you',
+          'Let\'s find a username for you. \nIt\'s a unique identifier for your friends to find you',
       buttonText: 'Take me to the last step',
       callback: () => widget.handleUsername(widget.username),
       content: Column(
@@ -54,7 +54,7 @@ class _RegistrationFlow3State extends State<RegistrationFlow3> {
               border: OutlineInputBorder(),
               labelText: 'Username',
               helperText:
-              'Rules for your username: \n   - all lowercase\n  - only letters, numbers and - \n  - no special characters (ä, ö, ü, á, é)',
+                  'Rules for your username: \n   - all lowercase\n  - only letters, numbers and - \n  - no special characters (ä, ö, ü, á, é)',
             ),
           ),
           Padding(
@@ -63,8 +63,7 @@ class _RegistrationFlow3State extends State<RegistrationFlow3> {
                 'No worries, you can change this later on',
                 style: TextStyle(
                   fontSize: 12,
-                  color: Theme
-                      .of(context)
+                  color: Theme.of(context)
                       .colorScheme
                       .onBackground
                       .withOpacity(0.5),

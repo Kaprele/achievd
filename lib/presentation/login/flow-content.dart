@@ -1,17 +1,17 @@
 import '../../util/constants.dart';
-import '../custom-scaffold.dart';
-import '../full-width-button.dart';
+import '../_shared/custom-scaffold.dart';
+import '../_shared/full-width-button.dart';
 import 'package:flutter/material.dart';
 
 class FlowContent extends StatelessWidget {
   const FlowContent(
       {super.key,
-        required this.title,
-        required this.description,
-        this.content,
-        required this.buttonText,
-        required this.callback,
-        this.first = false});
+      required this.title,
+      required this.description,
+      this.content,
+      required this.buttonText,
+      required this.callback,
+      this.first = false});
 
   final String title, description;
   final Widget? content;

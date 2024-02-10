@@ -1,18 +1,19 @@
-import 'package:achievd/widgets/login-flow-widgets/flow-content.dart';
-import 'package:achievd/widgets/login-flow-widgets/phonenumber-textfield.dart';
+import 'package:achievd/presentation/login/flow-content.dart';
+import 'package:achievd/presentation/login/widgets/phonenumber-textfield.dart';
 import 'package:flutter/material.dart';
 
 class LoginFlow0 extends StatefulWidget {
-  LoginFlow0(
-      {super.key,
-      required this.handlePhoneNumber,
-        required this.country,
-        required this.number,
-      });
+  LoginFlow0({
+    super.key,
+    required this.handlePhoneNumber,
+    required this.country,
+    required this.number,
+  });
 
   String country;
   String number;
   final void Function(String) handlePhoneNumber;
+
   @override
   State<LoginFlow0> createState() => _LoginFlow0State();
 }
@@ -31,8 +32,8 @@ class _LoginFlow0State extends State<LoginFlow0> {
       buttonText: 'Verify',
       callback: () => {},
       content: PhonenumberTextfield(
-         number: widget.number,
-          country:widget.country,
+        number: widget.number,
+        country: widget.country,
         handleCountry: (value) => {},
         handleNumber: (value) => {},
         error: error,

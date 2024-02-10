@@ -1,7 +1,7 @@
-import 'package:achievd/screens/login-flow.dart';
-import 'package:achievd/screens/main-screen.dart';
-import 'package:achievd/screens/registration-flow.dart';
-import 'package:achievd/screens/welcome-screen.dart';
+import 'package:achievd/presentation/login/login-flow.dart';
+import 'package:achievd/presentation/home/main-screen.dart';
+import 'package:achievd/presentation/registration/registration-flow.dart';
+import 'package:achievd/presentation/welcome/welcome-screen.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'firebase_options.dart';
+import 'util/integrations/firebase_options.dart';
 
 void main() async {
   FlutterNativeSplash.preserve(
@@ -42,9 +42,11 @@ class MyApp extends StatelessWidget {
               ? '/welcome-screen'
               : '/main-screen',
           routes: <String, WidgetBuilder>{
-            WelcomeScreen.route: (BuildContext context) => const WelcomeScreen(),
+            WelcomeScreen.route: (BuildContext context) =>
+                const WelcomeScreen(),
             LoginFlow.route: (BuildContext context) => const LoginFlow(),
-            RegistrationFlow.route: (BuildContext context) => const RegistrationFlow(),
+            RegistrationFlow.route: (BuildContext context) =>
+                const RegistrationFlow(),
             MainScreen.route: (BuildContext context) => const MainScreen(),
           });
     });

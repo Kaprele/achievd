@@ -1,15 +1,15 @@
-import 'package:achievd/widgets/login-flow-widgets/phonenumber-textfield.dart';
+import 'package:achievd/presentation/login/widgets/phonenumber-textfield.dart';
 import 'package:flutter/material.dart';
 
-import 'flow-content.dart';
+import '../flow-content.dart';
 
 class LoginFlow1 extends StatelessWidget {
-  LoginFlow1(
-      {super.key,
-      required this.handleVerificationCode,
-      required this.number,
-      required this.country,
-      });
+  LoginFlow1({
+    super.key,
+    required this.handleVerificationCode,
+    required this.number,
+    required this.country,
+  });
 
   final void Function(String) handleVerificationCode;
   String verificationCode = '123456'; //todo remove debug value
@@ -45,7 +45,7 @@ class LoginFlow1 extends StatelessWidget {
           TextField(
             //todo: make this to 6 digits
             onChanged: (value) => verificationCode = value,
-            onSubmitted: (value ) => handleVerificationCode,
+            onSubmitted: (value) => handleVerificationCode,
             autofocus: true,
             decoration: const InputDecoration(
               border: OutlineInputBorder(),
