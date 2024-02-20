@@ -36,12 +36,12 @@ class _PhonenumberTextfieldState extends State<PhonenumberTextfield> {
     countryfocus = FocusNode();
     phonefocus.addListener(() {
       if (!phonefocus.hasFocus) {
-        widget.handleNumber(widget.number);
+        // widget.handleNumber(widget.number);
       }
     });
     countryfocus.addListener(() {
       if (!countryfocus.hasFocus) {
-        widget.handleCountry(widget.country);
+        // widget.handleCountry(widget.country);
       }
     });
   }
@@ -62,7 +62,10 @@ class _PhonenumberTextfieldState extends State<PhonenumberTextfield> {
           width: 66, //todo make this dynamic
           child: TextField(
             enabled: widget.enabled,
-            onChanged: (value) => widget.country = value,
+            onChanged: (value) {
+              widget.country = value;
+              widget.handleCountry(value);
+            },
             onSubmitted: (value) {
               widget.handleCountry(value);
               FocusScope.of(context).requestFocus(phonefocus);
@@ -94,7 +97,10 @@ class _PhonenumberTextfieldState extends State<PhonenumberTextfield> {
               16, //todo make this dynamic
           child: TextField(
             enabled: widget.enabled,
-            onChanged: (value) => widget.handleNumber(value),
+            onChanged: (value) {
+              widget.number = value;
+              widget.handleNumber(value);
+            },
             onSubmitted: (value) => widget.handleNumber(value),
             controller: TextEditingController(text: widget.number),
             inputFormatters: [

@@ -18,7 +18,7 @@ class _RegistrationFlow1State extends State<RegistrationFlow1> {
   String country = '';
   String number = '';
 
-  RegExp phoneNumberRegex = RegExp(r'\+[0-9]*');
+  RegExp phoneNumberRegex = RegExp(r'\+[0-9]+'); //todo: add more checks
 
   String? error;
 
@@ -37,17 +37,13 @@ class _RegistrationFlow1State extends State<RegistrationFlow1> {
   }
 
   void handleNumber(String value) {
-    print(value);
-    setState(() {
-      number = value;
-    });
+    print('submitted number: $value');
+    number = value;
   }
 
   void handleCountry(String value) {
-    print('submitted: $value');
-    setState(() {
-      country = value;
-    });
+    print('submitted coutry: $value');
+    country = value;
   }
 
   @override

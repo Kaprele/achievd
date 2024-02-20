@@ -106,7 +106,7 @@ class _RegistrationFlowState extends State<RegistrationFlow> {
     }
 
     handleUsername(value) {
-      value = username;
+      username = value;
       if (username != '') {
         FirebaseAuth.instance.currentUser!.updateDisplayName(username);
         //todo: what happens with double usernames?
